@@ -26,3 +26,4 @@ print("To calculate the distance between two planets \n"
       "Enter two planet numbers or 0 to quit: \n")
 print("------------------------------------------------------------")
 
+
