@@ -34,7 +34,7 @@ def main():
     print("------------------------------------------------------------")
 
     while True:
-        def get_integer_input(message, min_num=0, max_num=0):
+        planet1 = get_integer_input(message="Please enter the first planet number #", min_num=0, max_num=len(planets))
 
             while True:
                 try:
