@@ -14,14 +14,25 @@ planets = (
 
 )
 
+# start of the program
 print("============================================================")
 print("Planet's Average Distance From Sun")
 print("============================================================")
+
+# displays the planets and the distance from each plant to the sun
 for planet, distance in planets:
     numbers += 1
-    print("#" + str(numbers) + " " + planet + " = " + str(distance) + " million miles")
+    print(f"#{numbers} {planet:<9} ={distance:>6} million miles")
 
 print("============================================================")
-print("To calculate the distance between two planets \n"
-      "Enter two planet numbers or 0 to quit: \n")
-print("------------------------------------------------------------")
+print("To calculate the distance between two planets \n")
+
+
+def main():
+
+    print("Enter two planet numbers or 0 to quit: ")
+    print("------------------------------------------------------------")
+
+    while True:
+        
+        break
