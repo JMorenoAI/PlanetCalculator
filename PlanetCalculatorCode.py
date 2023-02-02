@@ -34,4 +34,22 @@ def main():
     print("------------------------------------------------------------")
 
     while True:
-        break
+        def get_integer_input(message, min_num=0, max_num=0):
+
+            while True:
+                try:
+                    user_input = int(input(message))
+
+                    if min == 0 and max == 0:
+                        return user_input
+                    elif min_num <= user_input <= max_num:
+                        return user_input
+                    else:
+                        print(f"\t Invalid Input: Please enter a number between {min_num} and {max_num}.")
+                        continue
+
+                except ValueError:
+                    print("\tInvalid Input: Please enter a number.")
+                    continue
+                break
+            break
