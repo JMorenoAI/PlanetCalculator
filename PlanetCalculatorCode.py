@@ -1,6 +1,7 @@
 numbers = 0
 column_length = 9
 number_length = 5
+DASH_LENGTH = 60
 
 planets = (
     ('Mercury', 57),
@@ -14,42 +15,69 @@ planets = (
 
 )
 
+
+def get_integer_input(message, min_num=0, max_num=0):
+    while True:
+        try:
+            user_input = int(input(message))
+
+            if min == 0 and max == 0:
+                return user_input
+            elif min_num <= user_input <= max_num:
+                return user_input
+            else:
+                print(f"\t Invalid Input: Please enter a number between {min_num} and {max_num}.")
+                continue
+
+        except ValueError:
+            print("\tInvalid Input: Please enter a number.")
+            continue
+
+
+def display_abs_distance(planet1_num=0, planet2_num=0):
+    planet1_info = planets[planet1_num - 1]
+    planet1_name, planet1_dist = planet1_info
+
+    planet2_info = planets[planet2_num - 1]
+    planet2_name, planet2_dist = planet2_info
+
+    planet_dist = abs(planet2_dist - planet1_dist)
+    print(f"{planet1_name} and {planet2_name} are on average {planet_dist} million miles apart")
+
 # start of the program
-print("============================================================")
+print("=" * DASH_LENGTH)
 print("Planet's Average Distance From Sun")
-print("============================================================")
+print("=" * DASH_LENGTH)
 
 # displays the planets and the distance from each plant to the sun
 for planet, distance in planets:
     numbers += 1
     print(f"#{numbers} {planet:<9} ={distance:>6} million miles")
 
-print("============================================================")
+print("=" * DASH_LENGTH)
 print("To calculate the distance between two planets \n")
 
 
 def main():
 
     print("Enter two planet numbers or 0 to quit: ")
-    print("------------------------------------------------------------")
+    print("-" * DASH_LENGTH)
 
     while True:
+
+        # This gets what planets the user want to calculate
         planet1 = get_integer_input(message="Please enter the first planet number #", min_num=0, max_num=len(planets))
+        planet2 = get_integer_input(message="Please enter the second planet number #", min_num=0, max_num=len(planets))
 
-            while True:
-                try:
-                    user_input = int(input(message))
+        while planet1 == planet2:
+            print("      Invalid Input: the same planet was entered twice")
+            planet2 = get_integer_input(message="Please enter the second planet number #", min_num=0,
+                                        max_num=len(planets))
 
-                    if min == 0 and max == 0:
-                        return user_input
-                    elif min_num <= user_input <= max_num:
-                        return user_input
-                    else:
-                        print(f"\t Invalid Input: Please enter a number between {min_num} and {max_num}.")
-                        continue
+        # Displays the and sees if the tuple unpacker would work
+        display_abs_distance(planet1, planet2)
+        break
 
-                except ValueError:
-                    print("\tInvalid Input: Please enter a number.")
-                    continue
-                break
-            break
+
+if __name__ == "__main__":
+    main()
