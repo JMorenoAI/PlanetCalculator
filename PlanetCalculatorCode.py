@@ -81,9 +81,7 @@ def main():
         # Displays the and sees if the tuple unpacker would work
         display_abs_distance(planet1, planet2)
 
-
-
-        input("Please press enter to continue...") # pause to display the next prompt
+        input("Please press enter to continue...")  # pause to display the next prompt
 
 
 if __name__ == "__main__":
