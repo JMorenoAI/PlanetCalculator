@@ -44,6 +44,7 @@ def display_abs_distance(planet1_num=0, planet2_num=0):
     planet_dist = abs(planet2_dist - planet1_dist)
     print(f"{planet1_name} and {planet2_name} are on average {planet_dist} million miles apart")
 
+
 # start of the program
 print("=" * DASH_LENGTH)
 print("Planet's Average Distance From Sun")
@@ -59,7 +60,6 @@ print("To calculate the distance between two planets \n")
 
 
 def main():
-
     print("Enter two planet numbers or 0 to quit: ")
     print("-" * DASH_LENGTH)
 
