@@ -67,16 +67,23 @@ def main():
 
         # This gets what planets the user want to calculate
         planet1 = get_integer_input(message="Please enter the first planet number #", min_num=0, max_num=len(planets))
+        if planet1 == 0:
+            break
         planet2 = get_integer_input(message="Please enter the second planet number #", min_num=0, max_num=len(planets))
-
         while planet1 == planet2:
             print("      Invalid Input: the same planet was entered twice")
             planet2 = get_integer_input(message="Please enter the second planet number #", min_num=0,
                                         max_num=len(planets))
 
+        if planet2 == 0:
+            break
+
         # Displays the and sees if the tuple unpacker would work
         display_abs_distance(planet1, planet2)
-        break
+
+
+
+        input("Please press enter to continue...") # pause to display the next prompt
 
 
 if __name__ == "__main__":
