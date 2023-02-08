@@ -23,13 +23,15 @@ planets = (
 )
 
 
+# Data vaildations to verify if a user entered a legitimate value or if the user enter a numeric value
+
 def get_integer_input(message, min_num=0, max_num=0):
     while True:
         try:
             user_input = int(input(message))
 
             if min == 0 and max == 0:
-                return user_input
+                return user_input  # A method that ensures the values must not equal to less than 0
             elif min_num <= user_input <= max_num:
                 return user_input
             else:
@@ -37,9 +39,13 @@ def get_integer_input(message, min_num=0, max_num=0):
                 continue
 
         except ValueError:
-            print("\tInvalid Input: Please enter a number.")
+            print("\tInvalid Input: Please enter a number.")  # Tell the user to enter a number to continue
             continue
 
+
+# This code defines a function that calculate the distance from one planet to another planet by using two parameters
+# including planet1 and planet2. It unpacks and retrieves the data from the planets tuple and then subtract planet2
+# distance from planet1 and thus get the average distance.
 
 def display_abs_distance(planet1_num=0, planet2_num=0):
     planet1_info = planets[planet1_num - 1]
@@ -78,7 +84,7 @@ def main():
     while True:
         # This gets what planets the user want to calculate
         planet1 = get_integer_input(message="Please enter the first planet number #", min_num=0, max_num=len(planets))
-        if planet1 == 0:
+        if planet1 == 0: # if the planet1 input is 0, the program will stop looping
             break
 
         while True:
@@ -90,7 +96,7 @@ def main():
             else:
                 break
 
-        if planet2 == 0:
+        if planet2 == 0:  # if the planet2 input is 0, the program will not loop
             break
 
         # Displays the and sees if the tuple unpacker would work
@@ -102,6 +108,8 @@ def main():
         print("Enter two planet numbers or 0 to quit: ")
         print("-" * DASH_LENGTH)
 
+
+# If this is the starting module then run the main function
 
 if __name__ == "__main__":
     main()
