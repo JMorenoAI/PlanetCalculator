@@ -5,12 +5,10 @@
 
 # Github: https://github.com/JMorenoAI/Planet_Calculator_Group_Assignment/blob/main/PlanetCalculatorCode.py
 
-# Hi Joshua.  Would you mind just doing a change.  Thank you.
-
 
 DASH_LENGTH = 60  # Just codes to make the program look more appealing
 
-# Hard coded tuple to store data of planets' distance from the Sun
+# This is hard coded tuples to store data of planets' distance from the Sun
 
 planets = (
     ('Mercury', 57),
@@ -21,12 +19,10 @@ planets = (
     ('Saturn', 1430),
     ('Uranus', 2880),
     ('Neptune', 4500)
-
 )
 
 
 # Data vaildations to verify if a user entered a legitimate value or if the user enter a numeric value
-
 def get_integer_input(message, min_num=0, max_num=0):
     while True:
         try:
@@ -112,7 +108,6 @@ def main():
 
 
 # If this is the starting module then run the main function
-
 if __name__ == "__main__":
     main()
 
