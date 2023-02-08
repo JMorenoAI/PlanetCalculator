@@ -1,7 +1,14 @@
-numbers = 0
-column_length = 9
-number_length = 5
-DASH_LENGTH = 60
+# Creators: Edwin and Joshua
+# Date: February 7, 2023,
+# Description:
+#       This is a simple Python program designed to allow users calculate the distance between two planets
+
+# Github: https://github.com/JMorenoAI/Planet_Calculator_Group_Assignment/blob/main/PlanetCalculatorCode.py
+
+
+DASH_LENGTH = 60  # Just codes to make the program look more appealing
+
+# Hard coded tuple to store data of planets' distance from the Sun
 
 planets = (
     ('Mercury', 57),
@@ -42,38 +49,46 @@ def display_abs_distance(planet1_num=0, planet2_num=0):
     planet2_name, planet2_dist = planet2_info
 
     planet_dist = abs(planet2_dist - planet1_dist)
-    print(f"{planet1_name} and {planet2_name} are on average {planet_dist} million miles apart")
+    print(f"\n{planet1_name} and {planet2_name} are on average {planet_dist} million miles apart\n")
 
 
-# start of the program
-print("=" * DASH_LENGTH)
-print("Planet's Average Distance From Sun")
-print("=" * DASH_LENGTH)
+# The menu that users see on screen that they can enter planets to calculate the distance between them.
+def display_planets_menu():
+    numbers = 0
 
-# displays the planets and the distance from each plant to the sun
-for planet, distance in planets:
-    numbers += 1
-    print(f"#{numbers} {planet:<9} ={distance:>6} million miles")
+    print("=" * DASH_LENGTH)
+    print("Planet's Average Distance From Sun")
+    print("=" * DASH_LENGTH)
 
-print("=" * DASH_LENGTH)
-print("To calculate the distance between two planets \n")
+    # displays the planets and the distance from each plant to the sun
+    for planet, distance in planets:
+        numbers += 1
+        print(f"#{numbers} {planet:<9} ={distance:>6} million miles")
 
-
-def main():
+    print("=" * DASH_LENGTH)
+    print("To calculate the distance between two planets")
     print("Enter two planet numbers or 0 to quit: ")
     print("-" * DASH_LENGTH)
 
-    while True:
 
+# start of the running program
+def main():
+    display_planets_menu()
+
+    while True:
         # This gets what planets the user want to calculate
         planet1 = get_integer_input(message="Please enter the first planet number #", min_num=0, max_num=len(planets))
         if planet1 == 0:
             break
-        planet2 = get_integer_input(message="Please enter the second planet number #", min_num=0, max_num=len(planets))
-        while planet1 == planet2:
-            print("      Invalid Input: the same planet was entered twice")
-            planet2 = get_integer_input(message="Please enter the second planet number #", min_num=0,
-                                        max_num=len(planets))
+
+        while True:
+            planet2 = get_integer_input(message="Please enter the second planet number #",
+                                        min_num=0, max_num=len(planets))
+            if planet2 == planet1:
+                print("      Invalid Input: The same planet was entered twice")  # prompt the users to enter a valid #
+                continue
+            else:
+                break
 
         if planet2 == 0:
             break
@@ -83,6 +98,15 @@ def main():
 
         input("Please press enter to continue...")  # pause to display the next prompt
 
+        print("-" * DASH_LENGTH)
+        print("Enter two planet numbers or 0 to quit: ")
+        print("-" * DASH_LENGTH)
+
 
 if __name__ == "__main__":
     main()
+
+    # Final goodbye message before the end
+    print("=" * DASH_LENGTH)
+    print("Live Long and Prosper")
+    print("=" * DASH_LENGTH)
